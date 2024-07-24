@@ -1,5 +1,6 @@
 # Novel Nest
-"Novel Nest" is an online book ordering platform where users may browse, search, and purchase books from a handpicked collection. The website will have a listing of books, each with detailed information such as title, author, genre, price, and description. The site allows users to examine book details, search for specific books, and filter books based on category or price range. The website will offer a smooth and interactive user experience, with no page reloads or redirects.
+## Overview
+"Novel Nest" is an online book ordering platform where users may browse, search, and purchase books from a handpicked collection. 
 ## Core Features of the MVP
 
  -  **Browse Books**: Users can browse a collection of books with essential details like title, author, genre, price, and description.
@@ -30,3 +31,5 @@ For this project, we will use a JSON file (`db.json`) with a collection of books
 -   **GET** `/books/:id`: Fetch details of a specific book by ID.
 -   **POST** `/cart`: Add a book to the shopping cart.
 -   **DELETE** `/cart/:id`: Remove a book from the shopping cart.
+## conclusion
+The website will have a listing of books, each with detailed information such as title, author, genre, price, and description. The site allows users to examine book details, search for specific books, and filter books based on category or price range. The website will offer a smooth and interactive user experience, with no page reloads or redirects.
