@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Novel Nest</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Novel Nest</h1>
+    <input type="text" id="search" placeholder="Search for books...">
+    <select id="genre-filter">
+      <option value="">All Genres</option>
+      <option value="Fiction">Fiction</option>
+      <option value="Dystopian">Dystopian</option>
+      <option value="Adventure">Adventure</option>
+      <option value="Romance">Romance</option>
+      <option value="Tragedy">Tragedy</option>
+    </select>
+    <input type="number" id="price-filter" placeholder="Max Price (KSH)">
+    <button id="dark-mode-toggle">Toggle Dark Mode</button>
+  </header>
+
+  <main>
+    <div id="book-list"></div>
+  </main>
+
+  <footer>
+    <p>&copy;2024 Novel Nest</p>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+</html>

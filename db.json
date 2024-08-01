@@ -1,0 +1,46 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "To Kill a Mockingbird",
+      "author": "Harper Lee",
+      "genre": "Fiction",
+      "price": 2000,
+      "description": "A novel about the serious issues of rape and racial inequality."
+    },
+    {
+      "id": 2,
+      "title": "1984",
+      "author": "George Orwell",
+      "genre": "Dystopian",
+      "price": 1600,
+      "description": "A dystopian social science fiction novel and cautionary tale about the dangers of totalitarianism."
+    },
+    {
+      "id": 3,
+      "title": "Moby Dick",
+      "author": "Herman Melville",
+      "genre": "Adventure",
+      "price": 2500,
+      "description": "The sailor Ishmael tells the story of the obsessive quest of Ahab for revenge on Moby Dick."
+    },
+    {
+      "id": 4,
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "genre": "Romance",
+      "price": 1200,
+      "description": "A romantic novel that charts the emotional development of the protagonist, Elizabeth Bennet."
+    },
+    {
+      "id": 5,
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "genre": "Tragedy",
+      "price": 1700,
+      "description": "A novel about the American dream and the roaring twenties."
+    }
+  ],
+  "cart": []
+}
+
