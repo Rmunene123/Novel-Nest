@@ -1,14 +1,13 @@
-/* General styles */
 body {
-  background-color: #f0f8ff; /* Light blue background */
-  font-family: Arial, sans-serif; /* Clean, readable font */
+  background-color: #f0f8ff;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
 }
 
 header {
-  background-color: #87ceeb; /* Sky blue background */
-  color: #fff; /* White text */
+  background-color: #87cfeb;
+  color: #fff;
   text-align: center;
   padding: 1em 0;
 }
@@ -25,15 +24,18 @@ main {
   padding: 1em;
 }
 
-#favorites, #top-picks {
+#favorites,
+#top-picks {
   margin-bottom: 1em;
 }
 
-#favorites h2, #top-picks h2 {
+#favorites h2,
+#top-picks h2 {
   margin: 0;
 }
 
-#favorites-list, #top-picks-list {
+#favorites-list,
+#top-picks-list {
   display: flex;
   flex-wrap: wrap;
   gap: 1em;
@@ -59,14 +61,15 @@ main {
 }
 
 .book {
-  border: 1px solid #ddd; /* Light gray border */
+  border: 1px solid #ddd;
   border-radius: 5px;
   padding: 1em;
   width: 200px;
   text-align: center;
-  background-color: #fff; /* White background */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  position: relative; /* For positioning the discount label */
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: relative;
+  /* For positioning the discount label */
 }
 
 .book img {
@@ -88,10 +91,12 @@ main {
   position: absolute;
   top: 0;
   right: 0;
-  background-color: #ff5722; /* Orange background */
-  color: #fff; /* White text */
+  background-color: #ff5722;
+  /* Orange background */
+  color: #fff;
+  /* White text */
   padding: 0.5em;
-  border-radius: 0 5px 0 5px; /* Rounded corners for the top-right */
+  border-radius: 0 5px 0 5px;
   font-size: 0.9em;
 }
 
@@ -100,7 +105,8 @@ main {
 }
 
 .book .stars span {
-  color: #ffcc00; /* Gold color for stars */
+  color: #ffcc00;
+  /* Gold color for stars */
   font-size: 1.2em;
 }
 
@@ -114,13 +120,15 @@ button {
 }
 
 button.add-to-cart {
-  background-color: #2196f3; /* Blue button */
+  background-color: #2196f3;
+  /* Blue button */
 }
 
 button.like {
-  background-color: #ff5722; /* Orange button */
+  background-color: #ff5722;
+  /* Orange button */
 }
 
 button:hover {
-  opacity: 0.8; /* Slightly transparent on hover */
+  opacity: 0.8;
 }
