@@ -1,61 +1,175 @@
-// Initialize variables
-const bookList = document.getElementById('book-list');
-const searchInput = document.getElementById('search');
-const genreFilter = document.getElementById('genre-filter');
-const priceFilter = document.getElementById('price-filter');
-const darkModeToggle = document.getElementById('dark-mode-toggle');
-
-let books = [];
-
-// Fetch books from API
+// Function to fetch books from the API
 function fetchBooks() {
-  fetch('http://localhost:3000/books')
-    .then(response => response.json())
-    .then(data => {
-      books = data;
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'http://localhost:3000/books', true);
+  xhr.onload = function() {
+    if (xhr.status >= 200 && xhr.status < 300) {
+      var books = JSON.parse(xhr.responseText);
       displayBooks(books);
-    })
-    .catch(error => {
-      console.error('Error fetching books:', error);
-    });
+      populateGenres(books);
+      displayTopPicks(books);
+    } else {
+      console.error('Error fetching books:', xhr.statusText);
+    }
+  };
+  xhr.onerror = function() {
+    console.error('Network error occurred.');
+  };
+  xhr.send();
 }
 
-// Display books
+// Function to display books
 function displayBooks(books) {
-  bookList.innerHTML = books.map(book => `
-    <div class="book">
-      <h2>${book.title}</h2>
-      <p><strong>Author:</strong> ${book.author}</p>
-      <p><strong>Genre:</strong> ${book.genre}</p>
-      <p><strong>Price:</strong> KSH ${book.price.toFixed(2)}</p>
-      <p>${book.description}</p>
-    </div>
-  `).join('');
-}
+  var bookDisplay = document.getElementById('book-display');
+  bookDisplay.innerHTML = books.map(function(book) {
+    return `
+      <div class="book" data-id="${book.id}">
+        <img src="${book.coverImage}" alt="${book.title}">
+        ${book.discount > 0 ? `<div class="discount-label">${book.discount}% OFF</div>` : ''}
+        <h2>${book.title}</h2>
+        <p>${book.author}</p>
+        <p>KES ${book.price.toFixed(2)}</p>
+        <div class="stars">${getStars(book.rating)}</div>
+        ${book.inStock ? '<button class="add-to-cart">Add to Cart</button>' : '<p>Out of Stock</p>'}
+        <button class="like">Like</button>
+      </div>
+    `;
+  }).join('');
 
-// Filter books
-function filterBooks() {
-  const searchTerm = searchInput.value.toLowerCase();
-  const genre = genreFilter.value;
-  const maxPrice = parseFloat(priceFilter.value);
-
-  const filteredBooks = books.filter(book => {
-    const matchesSearch = book.title.toLowerCase().includes(searchTerm) || book.author.toLowerCase().includes(searchTerm);
-    const matchesGenre = genre === '' || book.genre === genre;
-    const matchesPrice = isNaN(maxPrice) || book.price <= maxPrice;
-    return matchesSearch && matchesGenre && matchesPrice;
+  // Attach event listeners to Like buttons
+  var likeButtons = document.querySelectorAll('.like');
+  likeButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      var bookId = this.closest('.book').getAttribute('data-id');
+      addToFavorites(bookId);
+    });
   });
 
-  displayBooks(filteredBooks);
+  // Attach event listeners to Add to Cart buttons
+  var addToCartButtons = document.querySelectorAll('.add-to-cart');
+  addToCartButtons.forEach(function(button) {
+    button.addEventListener('click', function() {
+      var bookId = this.closest('.book').getAttribute('data-id');
+      addToCart(bookId);
+    });
+  });
 }
 
-// Event listeners
-searchInput.addEventListener('input', filterBooks);
-genreFilter.addEventListener('change', filterBooks);
-priceFilter.addEventListener('input', filterBooks);
-darkModeToggle.addEventListener('click', function() {
-  document.body.classList.toggle('dark-mode');
-});
+// Function to display top picks
+function displayTopPicks(books) {
+  var topPicksList = document.getElementById('top-picks-list');
+  var topPicks = books.filter(function(book) {
+    return book.topPick;
+  });
+  topPicksList.innerHTML = topPicks.map(function(book) {
+    return `
+      <div class="book" data-id="${book.id}">
+        <img src="${book.coverImage}" alt="${book.title}">
+        ${book.discount > 0 ? `<div class="discount-label">${book.discount}% OFF</div>` : ''}
+        <h2>${book.title}</h2>
+        <p>${book.author}</p>
+        <p>KES ${book.price.toFixed(2)}</p>
+        <div class="stars">${getStars(book.rating)}</div>
+        ${book.inStock ? '<button class="add-to-cart">Add to Cart</button>' : '<p>Out of Stock</p>'}
+      </div>
+    `;
+  }).join('');
+}
 
-// Initial fetch
+// Function to get star rating HTML
+function getStars(rating) {
+  var stars = '';
+  for (var i = 0; i < 5; i++) {
+    stars += `<span>${i < rating ? '★' : '☆'}</span>`;
+  }
+  return stars;
+}
+
+// Function to populate genre filter
+function populateGenres(books) {
+  var genres = books.map(function(book) {
+    return book.genre;
+  });
+  genres = Array.from(new Set(genres)); // Remove duplicates
+  var genreSelect = document.getElementById('genre');
+  genreSelect.innerHTML += genres.map(function(genre) {
+    return `<option value="${genre}">${genre}</option>`;
+  }).join('');
+}
+
+// Function to filter books by genre
+function filterBooks() {
+  var genre = document.getElementById('genre').value;
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'http://localhost:3000/books', true);
+  xhr.onload = function() {
+    if (xhr.status >= 200 && xhr.status < 300) {
+      var books = JSON.parse(xhr.responseText);
+      var filteredBooks = genre ? books.filter(function(book) {
+        return book.genre === genre;
+      }) : books;
+      displayBooks(filteredBooks);
+    } else {
+      console.error('Error filtering books:', xhr.statusText);
+    }
+  };
+  xhr.onerror = function() {
+    console.error('Network error occurred.');
+  };
+  xhr.send();
+}
+
+// Function to add a book to favorites
+function addToFavorites(bookId) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'http://localhost:3000/books/' + bookId, true);
+  xhr.onload = function() {
+    if (xhr.status >= 200 && xhr.status < 300) {
+      var book = JSON.parse(xhr.responseText);
+      var favoritesList = document.getElementById('favorites-list');
+      var favoriteItem = document.createElement('div');
+      favoriteItem.className = 'book';
+      favoriteItem.innerHTML = `
+        <img src="${book.coverImage}" alt="${book.title}">
+        <h2>${book.title}</h2>
+        <p>${book.author}</p>
+        <p>KES ${book.price.toFixed(2)}</p>
+      `;
+      favoritesList.appendChild(favoriteItem);
+    } else {
+      console.error('Error fetching book details:', xhr.statusText);
+    }
+  };
+  xhr.onerror = function() {
+    console.error('Network error occurred.');
+  };
+  xhr.send();
+}
+
+// Function to add a book to the cart
+function addToCart(bookId) {
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', 'http://localhost:3000/books/' + bookId, true);
+  xhr.onload = function() {
+    if (xhr.status >= 200 && xhr.status < 300) {
+      var book = JSON.parse(xhr.responseText);
+      alert(`Added "${book.title}" to the cart.`);
+      // In a real application, you would probably send this info to a server or update the UI.
+    } else {
+      console.error('Error fetching book details:', xhr.statusText);
+    }
+  };
+  xhr.onerror = function() {
+    console.error('Network error occurred.');
+  };
+  xhr.send();
+}
+
+// Attach event listener to the genre filter
+var genreSelect = document.getElementById('genre');
+if (genreSelect) {
+  genreSelect.addEventListener('change', filterBooks);
+}
+
+// Fetch books initially
 fetchBooks();

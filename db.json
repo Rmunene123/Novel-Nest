@@ -4,43 +4,114 @@
       "id": 1,
       "title": "To Kill a Mockingbird",
       "author": "Harper Lee",
+      "price": 1800,
+      "discount": 10,
       "genre": "Fiction",
-      "price": 2000,
-      "description": "A novel about the serious issues of rape and racial inequality."
+      "coverImage": "https://covers.openlibrary.org/b/id/8226197-L.jpg",
+      "inStock": true,
+      "rating": 4
     },
     {
       "id": 2,
       "title": "1984",
       "author": "George Orwell",
+      "price": 1400,
+      "discount": 0,
       "genre": "Dystopian",
-      "price": 1600,
-      "description": "A dystopian social science fiction novel and cautionary tale about the dangers of totalitarianism."
+      "coverImage": "https://covers.openlibrary.org/b/id/1536944-L.jpg",
+      "inStock": true,
+      "rating": 5
     },
     {
       "id": 3,
-      "title": "Moby Dick",
-      "author": "Herman Melville",
-      "genre": "Adventure",
-      "price": 2500,
-      "description": "The sailor Ishmael tells the story of the obsessive quest of Ahab for revenge on Moby Dick."
+      "title": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "price": 2300,
+      "discount": 15,
+      "genre": "Classic",
+      "coverImage": "https://covers.openlibrary.org/b/id/7222246-L.jpg",
+      "inStock": false,
+      "rating": 3
     },
     {
       "id": 4,
-      "title": "Pride and Prejudice",
-      "author": "Jane Austen",
-      "genre": "Romance",
-      "price": 1200,
-      "description": "A romantic novel that charts the emotional development of the protagonist, Elizabeth Bennet."
+      "title": "Moby Dick",
+      "author": "Herman Melville",
+      "price": 3000,
+      "discount": 5,
+      "genre": "Adventure",
+      "coverImage": "https://covers.openlibrary.org/b/id/7185227-L.jpg",
+      "inStock": true,
+      "rating": 4,
+      "topPick": true
     },
     {
       "id": 5,
-      "title": "The Great Gatsby",
-      "author": "F. Scott Fitzgerald",
-      "genre": "Tragedy",
+      "title": "Pride and Prejudice",
+      "author": "Jane Austen",
       "price": 1700,
-      "description": "A novel about the American dream and the roaring twenties."
+      "discount": 10,
+      "genre": "Romance",
+      "coverImage": "https://covers.openlibrary.org/b/id/8226211-L.jpg",
+      "inStock": true,
+      "rating": 5
+    },
+    {
+      "id": 6,
+      "title": "The Catcher in the Rye",
+      "author": "J.D. Salinger",
+      "price": 1900,
+      "discount": 0,
+      "genre": "Fiction",
+      "coverImage": "https://covers.openlibrary.org/b/id/8179340-L.jpg",
+      "inStock": true,
+      "rating": 4
+    },
+    {
+      "id": 7,
+      "title": "Brave New World",
+      "author": "Aldous Huxley",
+      "price": 1300,
+      "discount": 0,
+      "genre": "Dystopian",
+      "coverImage": "https://covers.openlibrary.org/b/id/8226238-L.jpg",
+      "inStock": true,
+      "rating": 4
+    },
+    {
+      "id": 8,
+      "title": "Jane Eyre",
+      "author": "Charlotte Brontë",
+      "price": 2200,
+      "discount": 10,
+      "genre": "Classic",
+      "coverImage": "https://covers.openlibrary.org/b/id/8226234-L.jpg",
+      "inStock": true,
+      "rating": 5
+    },
+    {
+      "id": 9,
+      "title": "The Hobbit",
+      "author": "J.R.R. Tolkien",
+      "price": 2700,
+      "discount": 10,
+      "genre": "Fantasy",
+      "coverImage": "https://covers.openlibrary.org/b/id/7880856-L.jpg",
+      "inStock": true,
+      "rating": 5,
+      "topPick": true
+    },
+    {
+      "id": 10,
+      "title": "Wuthering Heights",
+      "author": "Emily Brontë",
+      "price": 2000,
+      "discount": 12,
+      "genre": "Classic",
+      "coverImage": "https://covers.openlibrary.org/b/id/7222247-L.jpg",
+      "inStock": false,
+      "rating": 3
     }
   ],
-  "cart": []
+  "favorites": []
 }
-

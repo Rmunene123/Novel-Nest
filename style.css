@@ -1,94 +1,126 @@
+/* General styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  header {
-    background-color: #4CAF50;
-    padding: 1em;
-    text-align: center;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5em;
-  }
-  
-  header input, header select, header button {
-    margin: 0.5em;
-    padding: 0.5em;
-    border: none;
-    border-radius: 5px;
-  }
-  
-  header button {
-    background-color: #333;
-    color: white;
-    cursor: pointer;
-  }
-  
-  header button:hover {
-    background-color: #555;
-  }
-  
-  main {
-    padding: 1em;
-  }
-  
-  #book-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1em;
-    justify-content: center;
-  }
-  
-  .book {
-    background-color: white;
-    padding: 1em;
-    border: 1px solid #ddd;
-    width: calc(33.333% - 2em);
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .book h2 {
-    margin: 0;
-    font-size: 1.2em;
-  }
-  
-  .book p {
-    margin: 0.5em 0;
-  }
-  
-  footer {
-    background-color: #4CAF50;
-    text-align: center;
-    color: white;
-    padding: 1em;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    transition: background-color 0.3s;
-  }
-  
-  .dark-mode {
-    background-color: #333;
-    color: white;
-  }
-  
-  .dark-mode header {
-    background-color: #222;
-  }
-  
-  .dark-mode footer {
-    background-color: #222;
-  }
-  
-  .dark-mode .book {
-    background-color: #444;
-    border-color: #666;
-  }
-  
+  background-color: #f0f8ff; /* Light blue background */
+  font-family: Arial, sans-serif; /* Clean, readable font */
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #87ceeb; /* Sky blue background */
+  color: #fff; /* White text */
+  text-align: center;
+  padding: 1em 0;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header p {
+  margin: 0.5em 0 0;
+}
+
+main {
+  padding: 1em;
+}
+
+#favorites, #top-picks {
+  margin-bottom: 1em;
+}
+
+#favorites h2, #top-picks h2 {
+  margin: 0;
+}
+
+#favorites-list, #top-picks-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+#filters {
+  margin-bottom: 1em;
+}
+
+#filters label {
+  margin-right: 0.5em;
+}
+
+#genre {
+  padding: 0.5em;
+  font-size: 1em;
+}
+
+#book-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+.book {
+  border: 1px solid #ddd; /* Light gray border */
+  border-radius: 5px;
+  padding: 1em;
+  width: 200px;
+  text-align: center;
+  background-color: #fff; /* White background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  position: relative; /* For positioning the discount label */
+}
+
+.book img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.book h2 {
+  font-size: 1.2em;
+  margin: 0.5em 0;
+}
+
+.book p {
+  margin: 0.5em 0;
+}
+
+.book .discount-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #ff5722; /* Orange background */
+  color: #fff; /* White text */
+  padding: 0.5em;
+  border-radius: 0 5px 0 5px; /* Rounded corners for the top-right */
+  font-size: 0.9em;
+}
+
+.book .stars {
+  margin-top: 0.5em;
+}
+
+.book .stars span {
+  color: #ffcc00; /* Gold color for stars */
+  font-size: 1.2em;
+}
+
+button {
+  margin-top: 0.5em;
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+button.add-to-cart {
+  background-color: #2196f3; /* Blue button */
+}
+
+button.like {
+  background-color: #ff5722; /* Orange button */
+}
+
+button:hover {
+  opacity: 0.8; /* Slightly transparent on hover */
+}
