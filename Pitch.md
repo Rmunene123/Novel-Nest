@@ -33,7 +33,6 @@ For this project, we will use a JSON file (`db.json`) with a collection of books
 
 -   **GET** `/books`: Fetch the list of all books.
 -   **GET** `/books/:id`: Fetch details of a specific book by ID.
--   **POST** `/cart`: Add a book to the shopping cart.
--   **DELETE** `/cart/:id`: Remove a book from the shopping cart.
+
 ## conclusion
 The website will have a listing of books, each with detailed information such as title, author, genre, price among others. The site allows users to examine book details, search for specific genres, see the book ratings and also see top picks of the books. The website will offer a smooth and interactive user experience, with no page reloads or redirects.
